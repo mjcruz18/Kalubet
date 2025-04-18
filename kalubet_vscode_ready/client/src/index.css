@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+    
+    --kalubet-blue: 220 72% 14%;
+    --kalubet-blue-light: 225 67% 27%;
+    --kalubet-gold: 42 74% 60%;
+    --kalubet-gold-dark: 42 62% 52%;
+    --kalubet-dark: 220 74% 7%;
+    --kalubet-text: 0 0% 96%;
+    --kalubet-accent: 6 78% 57%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-roboto bg-[#050d1d] text-[#f5f5f5];
+  }
+}
+
+@layer components {
+  .winners-ticker {
+    animation: ticker 30s linear infinite;
+  }
+  
+  @keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  .game-card {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .game-card:hover {
+    @apply -translate-y-1 shadow-lg shadow-[rgba(230,182,76,0.3)];
+  }
+  
+  .golden-border {
+    @apply shadow-[0_0_15px_rgba(230,182,76,0.6)];
+  }
+  
+  @keyframes dealCard {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .deal-animation {
+    animation: dealCard 0.5s ease forwards;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .spin-animation {
+    animation: spin 3s ease-out forwards;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .pulse-animation {
+    animation: pulse 2s infinite;
+  }
+}
+
+@layer utilities {
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .font-oswald {
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  .bg-gold-gradient {
+    @apply bg-gradient-to-r from-[#e6b64c] to-[#d4a438];
+  }
+  
+  .bg-blue-gradient {
+    @apply bg-gradient-to-b from-[#0a1c3e] to-[#050d1d];
+  }
+}
